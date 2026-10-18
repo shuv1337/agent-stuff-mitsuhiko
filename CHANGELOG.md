@@ -4,6 +4,8 @@ All notable changes to agent-stuff are documented here.
 
 ## Unreleased
 
+* `mermaid` skill: `validate.sh` now checks diagrams with Pele 1.6.0 (pinned, built from source by `tools/setup_pele.sh`) instead of `npx @mermaid-js/mermaid-cli`, so no headless Chromium is needed.
+
 ## 1.3.0
 
 * Added `/session-breakdown` command with interactive TUI showing sessions, messages, tokens, and cost over the last 7/30/90 days with a GitHub-style contribution calendar.

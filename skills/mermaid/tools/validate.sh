@@ -27,6 +27,10 @@ fi
 if [ ! -f "$PELE_DIST" ]; then
     echo "Pele not found at $PELE_DIST; building pinned release..."
     PELE_HOME="$PELE_HOME" bash "$TOOLS_DIR/setup_pele.sh" >&2
+    if [ ! -f "$PELE_DIST" ]; then
+        echo "Error: Pele build not found at $PELE_DIST (check PELE_DIST / PELE_HOME)" >&2
+        exit 1
+    fi
 fi
 
 CLEANUP=0
@@ -60,6 +64,7 @@ process.stdout.write("\n");
         echo "Rendered to: $OUTPUT"
     fi
 else
+    rm -f "$OUTPUT"
     echo "✗ Mermaid validation failed"
     exit 1
 fi
